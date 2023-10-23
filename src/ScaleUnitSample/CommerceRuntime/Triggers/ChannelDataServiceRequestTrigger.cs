@@ -7,7 +7,7 @@
  * NO TECHNICAL SUPPORT IS PROVIDED.  YOU MAY NOT DISTRIBUTE THIS CODE UNLESS YOU HAVE A LICENSE AGREEMENT WITH MICROSOFT THAT ALLOWS YOU TO DO SO.
  */
 
-namespace Contoso.CommerceRuntime.Triggers
+namespace GS.SCX.CommerceRuntime.Triggers
 {
     using Microsoft.Dynamics.Commerce.Runtime;
     using Microsoft.Dynamics.Commerce.Runtime.DataModel;

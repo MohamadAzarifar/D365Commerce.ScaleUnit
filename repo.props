@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Publisher Condition="'$(Publisher)' == ''">CN=Contoso Ltd.</Publisher>
-    <PublisherDisplayName Condition="'$(PublisherDisplayName)' == ''">Contoso Ltd.</PublisherDisplayName>
+    <Publisher Condition="'$(Publisher)' == ''">CN=GS.SCX Ltd.</Publisher>
+    <PublisherDisplayName Condition="'$(PublisherDisplayName)' == ''">GS.SCX Ltd.</PublisherDisplayName>
   </PropertyGroup>
 
   <PropertyGroup>

@@ -49515,8 +49515,8 @@
       "copyrightText": "NOASSERTION"
     },
     {
-      "fileName": "./src/ScaleUnitSample/ChannelDatabase/Contoso.ExampleTable.ChannelDatabase.sql",
-      "SPDXID": "SPDXRef-File--src-ScaleUnitSample-ChannelDatabase-Contoso.ExampleTable.ChannelDatabase.sql-7017FF59EC7E72297DF8CB2FBE60A4C554D2C656",
+      "fileName": "./src/ScaleUnitSample/ChannelDatabase/GS.SCX.ExampleTable.ChannelDatabase.sql",
+      "SPDXID": "SPDXRef-File--src-ScaleUnitSample-ChannelDatabase-GS.SCX.ExampleTable.ChannelDatabase.sql-7017FF59EC7E72297DF8CB2FBE60A4C554D2C656",
       "checksums": [
         {
           "algorithm": "SHA256",
@@ -75532,7 +75532,7 @@
         "SPDXRef-File--src-ScaleUnitSample-POS-manifest.json-FD329A0EDF8FFF98949602CC08BAA0F5302D7B94",
         "SPDXRef-File--src-ScaleUnitSample-CommerceRuntime-Messages-UpdateExampleEntityDataRequest.cs-AE4A15CA2DF53A4AFD9A06E1F42FDB4096934129",
         "SPDXRef-File--src-ScaleUnitSample-CommerceRuntime-Controllers-UnboundController.cs-8CED65AA4B2DFADA8026C5B6197268FEF21F2A6F",
-        "SPDXRef-File--src-ScaleUnitSample-ChannelDatabase-Contoso.ExampleTable.ChannelDatabase.sql-7017FF59EC7E72297DF8CB2FBE60A4C554D2C656",
+        "SPDXRef-File--src-ScaleUnitSample-ChannelDatabase-GS.SCX.ExampleTable.ChannelDatabase.sql-7017FF59EC7E72297DF8CB2FBE60A4C554D2C656",
         "SPDXRef-File--Pipeline-YAML-Files-build-pipeline.yml-3A27787F9E8BDE7EEB113E6A7525DE1599246BCE",
         "SPDXRef-File--.git-refs-tags-9.49.23293.1-4F4FE3E9C43DD8D0DE4DE41D4A60E2ED8D02CF25",
         "SPDXRef-File--.git-refs-tags-9.49.23285.1-C8D9B7DFB14F058B2010E5CDB630BC58E11E43EE",

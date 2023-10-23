@@ -7,10 +7,10 @@
  * NO TECHNICAL SUPPORT IS PROVIDED.  YOU MAY NOT DISTRIBUTE THIS CODE UNLESS YOU HAVE A LICENSE AGREEMENT WITH MICROSOFT THAT ALLOWS YOU TO DO SO.
  */
 
-namespace Contoso.CommerceRuntime.Messages
+namespace GS.SCX.CommerceRuntime.Messages
 {
     using System.Runtime.Serialization;
-    using Contoso.CommerceRuntime.Entities.DataModel;
+    using GS.SCX.CommerceRuntime.Entities.DataModel;
     using Microsoft.Dynamics.Commerce.Runtime.Messages;
 
     /// <summary>

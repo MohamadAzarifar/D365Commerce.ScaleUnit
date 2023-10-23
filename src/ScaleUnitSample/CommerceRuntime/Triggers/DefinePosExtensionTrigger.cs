@@ -7,7 +7,7 @@
  * NO TECHNICAL SUPPORT IS PROVIDED.  YOU MAY NOT DISTRIBUTE THIS CODE UNLESS YOU HAVE A LICENSE AGREEMENT WITH MICROSOFT THAT ALLOWS YOU TO DO SO.
  */
 
-namespace Contoso.CommerceRuntime.Triggers
+namespace GS.SCX.CommerceRuntime.Triggers
 {
     using System;
     using System.Collections.Generic;
@@ -44,8 +44,8 @@ namespace Contoso.CommerceRuntime.Triggers
 
             var getExtensionsResponse = (GetExtensionPackageDefinitionsResponse)response;
             var extensionPackageDefinition = new ExtensionPackageDefinition();
-            extensionPackageDefinition.Name = "Contoso.Commerce";
-            extensionPackageDefinition.Publisher = "Contoso";
+            extensionPackageDefinition.Name = "GS.SCX.Commerce";
+            extensionPackageDefinition.Publisher = "GS.SCX";
             extensionPackageDefinition.IsEnabled = true;
 
             getExtensionsResponse.ExtensionPackageDefinitions.Add(extensionPackageDefinition);

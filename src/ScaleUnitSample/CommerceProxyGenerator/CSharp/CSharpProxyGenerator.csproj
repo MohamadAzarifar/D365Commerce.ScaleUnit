@@ -4,8 +4,8 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <CommerceProxyGeneratorApplicationType>CSharpExtensions</CommerceProxyGeneratorApplicationType>
-        <AssemblyName>Contoso.Commerce.RetailProxy.Extension</AssemblyName>
-        <RootNamespace>Contoso.Commerce.RetailProxy.Extension</RootNamespace>
+        <AssemblyName>GS.SCX.Commerce.RetailProxy.Extension</AssemblyName>
+        <RootNamespace>GS.SCX.Commerce.RetailProxy.Extension</RootNamespace>
         <DefaultLanguage>en-US</DefaultLanguage>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     </PropertyGroup>
