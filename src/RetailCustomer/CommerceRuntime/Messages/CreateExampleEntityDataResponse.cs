@@ -7,31 +7,29 @@
  * NO TECHNICAL SUPPORT IS PROVIDED.  YOU MAY NOT DISTRIBUTE THIS CODE UNLESS YOU HAVE A LICENSE AGREEMENT WITH MICROSOFT THAT ALLOWS YOU TO DO SO.
  */
 
-namespace GS.SCX.CommerceRuntime.Messages
+namespace GSSCX.CommerceRuntime.Messages
 {
     using System.Runtime.Serialization;
-    using GS.SCX.CommerceRuntime.Entities.DataModel;
     using Microsoft.Dynamics.Commerce.Runtime.Messages;
 
     /// <summary>
-    /// A simple request class to create an Example Entity in the database.
+    /// A simple response class to indicate whether creating a new entity succeeded or not.
     /// </summary>
     [DataContract]
-    public sealed class CreateExampleEntityDataRequest : Request
+    public sealed class CreateExampleEntityDataResponse : Response
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateExampleEntityDataRequest"/> class.
+        /// Initializes a new instance of the <see cref="CreateExampleEntityDataResponse"/> class.
         /// </summary>
-        /// <param name="entityData">An example entity with its fields populated with the values to be stored.</param>
-        public CreateExampleEntityDataRequest(ExampleEntity entityData)
+        /// <param name="createdId">The ID of the newly saved entity instance, 0 in the event of failure.</param>
+        public CreateExampleEntityDataResponse(long createdId)
         {
-            this.EntityData = entityData;
+            this.CreatedId = createdId;
         }
 
         /// <summary>
-        /// Gets an Example Entity instance with its fields set with the values to be stored.
+        /// Gets the ID of the newly saved entity instance, or 0 in the event of failure.
         /// </summary>
-        [DataMember]
-        public ExampleEntity EntityData { get; private set; }
+        public long CreatedId { get; private set; }
     }
 }

@@ -7,29 +7,31 @@
  * NO TECHNICAL SUPPORT IS PROVIDED.  YOU MAY NOT DISTRIBUTE THIS CODE UNLESS YOU HAVE A LICENSE AGREEMENT WITH MICROSOFT THAT ALLOWS YOU TO DO SO.
  */
 
-namespace GS.SCX.CommerceRuntime.Messages
+namespace GSSCX.CommerceRuntime.Messages
 {
     using System.Runtime.Serialization;
+    using GSSCX.CommerceRuntime.Entities.DataModel;
     using Microsoft.Dynamics.Commerce.Runtime.Messages;
 
     /// <summary>
-    /// A simple response class to indicate whether an update succeeded or not.
+    /// A simple request class to create an Example Entity in the database.
     /// </summary>
     [DataContract]
-    public sealed class UpdateExampleEntityDataResponse : Response
+    public sealed class CreateExampleEntityDataRequest : Request
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateExampleEntityDataResponse"/> class.
+        /// Initializes a new instance of the <see cref="CreateExampleEntityDataRequest"/> class.
         /// </summary>
-        /// <param name="success">Whether the update succeeded.</param>
-        public UpdateExampleEntityDataResponse(bool success)
+        /// <param name="entityData">An example entity with its fields populated with the values to be stored.</param>
+        public CreateExampleEntityDataRequest(ExampleEntity entityData)
         {
-            this.Success = success;
+            this.EntityData = entityData;
         }
 
         /// <summary>
-        /// Gets a value indicating whether the update succeeded.
+        /// Gets an Example Entity instance with its fields set with the values to be stored.
         /// </summary>
-        public bool Success { get; private set; }
+        [DataMember]
+        public ExampleEntity EntityData { get; private set; }
     }
 }

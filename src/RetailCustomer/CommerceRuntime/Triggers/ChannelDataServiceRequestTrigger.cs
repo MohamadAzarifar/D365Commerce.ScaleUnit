@@ -7,7 +7,7 @@
  * NO TECHNICAL SUPPORT IS PROVIDED.  YOU MAY NOT DISTRIBUTE THIS CODE UNLESS YOU HAVE A LICENSE AGREEMENT WITH MICROSOFT THAT ALLOWS YOU TO DO SO.
  */
 
-namespace GS.SCX.CommerceRuntime.Triggers
+namespace GSSCX.CommerceRuntime.Triggers
 {
     using Microsoft.Dynamics.Commerce.Runtime;
     using Microsoft.Dynamics.Commerce.Runtime.DataModel;

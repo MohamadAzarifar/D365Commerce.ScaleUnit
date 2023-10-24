@@ -7,28 +7,28 @@
  * NO TECHNICAL SUPPORT IS PROVIDED.  YOU MAY NOT DISTRIBUTE THIS CODE UNLESS YOU HAVE A LICENSE AGREEMENT WITH MICROSOFT THAT ALLOWS YOU TO DO SO.
  */
 
-namespace GS.SCX.CommerceRuntime.Messages
+namespace GSSCX.CommerceRuntime.Messages
 {
     using System.Runtime.Serialization;
     using Microsoft.Dynamics.Commerce.Runtime.Messages;
 
     /// <summary>
-    /// A simple response class to indicate whether a delete succeeded or not.
+    /// A simple response class to indicate whether an update succeeded or not.
     /// </summary>
     [DataContract]
-    public sealed class DeleteExampleEntityDataResponse : Response
+    public sealed class UpdateExampleEntityDataResponse : Response
     {
         /// <summary>
-        /// Creates a new instance of the <see cref="DeleteExampleEntityDataResponse"/> class.
+        /// Initializes a new instance of the <see cref="UpdateExampleEntityDataResponse"/> class.
         /// </summary>
-        /// <param name="success">Whether the delete succeeded.</param>
-        public DeleteExampleEntityDataResponse(bool success)
+        /// <param name="success">Whether the update succeeded.</param>
+        public UpdateExampleEntityDataResponse(bool success)
         {
             this.Success = success;
         }
 
         /// <summary>
-        /// Gets a value indicating whether the delete succeeded.
+        /// Gets a value indicating whether the update succeeded.
         /// </summary>
         public bool Success { get; private set; }
     }

@@ -7,7 +7,7 @@
  * NO TECHNICAL SUPPORT IS PROVIDED.  YOU MAY NOT DISTRIBUTE THIS CODE UNLESS YOU HAVE A LICENSE AGREEMENT WITH MICROSOFT THAT ALLOWS YOU TO DO SO.
  */
 
-namespace GS.SCX.CommerceRuntime.RequestHandlers
+namespace GSSCX.CommerceRuntime.RequestHandlers
 {
     using System;
     using System.Collections.Generic;
@@ -18,8 +18,8 @@ namespace GS.SCX.CommerceRuntime.RequestHandlers
     using Microsoft.Dynamics.Commerce.Runtime.Data;
     using Microsoft.Dynamics.Commerce.Runtime.DataAccess.SqlServer;
     using Microsoft.Dynamics.Commerce.Runtime.Messages;
-    using GS.SCX.CommerceRuntime.Entities.DataModel;
-    using GS.SCX.CommerceRuntime.Messages;
+    using GSSCX.CommerceRuntime.Entities.DataModel;
+    using GSSCX.CommerceRuntime.Messages;
 
     /// <summary>
     /// Sample service to demonstrate managing a collection of entities.
@@ -79,7 +79,7 @@ namespace GS.SCX.CommerceRuntime.RequestHandlers
                 parameters["@i_ExampleInt"] = request.EntityData.IntData;
                 parameters["@s_ExampleString"] = request.EntityData.StringData;
                 var result = await databaseContext
-                    .ExecuteStoredProcedureAsync<ExampleEntity>("[ext].GS.SCX_INSERTEXAMPLE", parameters, request.QueryResultSettings)
+                    .ExecuteStoredProcedureAsync<ExampleEntity>("[ext].GSSCX_INSERTEXAMPLE", parameters, request.QueryResultSettings)
                     .ConfigureAwait(continueOnCapturedContext: false);
                 insertedId = result.Item2.Single().UnusualEntityId;
             }
@@ -97,7 +97,7 @@ namespace GS.SCX.CommerceRuntime.RequestHandlers
                 {
                     DatabaseSchema = "ext",
                     Select = new ColumnSet("EXAMPLEINT", "EXAMPLESTRING", "EXAMPLEID"),
-                    From = "GS.SCX_EXAMPLEVIEW",
+                    From = "GSSCX_EXAMPLEVIEW",
                     OrderBy = "EXAMPLEID",
                 };
 
@@ -128,7 +128,7 @@ namespace GS.SCX.CommerceRuntime.RequestHandlers
                 parameters["@s_ExampleString"] = request.UpdatedExampleEntity.StringData;
                 int sprocErrorCode =
                     await databaseContext
-                    .ExecuteStoredProcedureNonQueryAsync("[ext].GS.SCX_UPDATEEXAMPLE", parameters, request.QueryResultSettings)
+                    .ExecuteStoredProcedureNonQueryAsync("[ext].GSSCX_UPDATEEXAMPLE", parameters, request.QueryResultSettings)
                     .ConfigureAwait(continueOnCapturedContext: false);
                 updateSuccess = (sprocErrorCode == 0);
             }
@@ -152,7 +152,7 @@ namespace GS.SCX.CommerceRuntime.RequestHandlers
                 parameters["@bi_Id"] = request.ExampleEntityKey;
                 int sprocErrorCode =
                     await databaseContext
-                    .ExecuteStoredProcedureNonQueryAsync("[ext].GS.SCX_DELETEEXAMPLE", parameters, request.QueryResultSettings)
+                    .ExecuteStoredProcedureNonQueryAsync("[ext].GSSCX_DELETEEXAMPLE", parameters, request.QueryResultSettings)
                     .ConfigureAwait(continueOnCapturedContext: false);
                 deleteSuccess = sprocErrorCode == 0;
             }

@@ -4,8 +4,8 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <CommerceProxyGeneratorApplicationType>CSharpExtensions</CommerceProxyGeneratorApplicationType>
-        <AssemblyName>GS.SCX.Commerce.RetailProxy.Extension</AssemblyName>
-        <RootNamespace>GS.SCX.Commerce.RetailProxy.Extension</RootNamespace>
+        <AssemblyName>GSSCX.Commerce.RetailProxy.Extension</AssemblyName>
+        <RootNamespace>GSSCX.Commerce.RetailProxy.Extension</RootNamespace>
         <DefaultLanguage>en-US</DefaultLanguage>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     </PropertyGroup>
@@ -21,6 +21,6 @@
 
     <!--Provide the path to the commerce runtime extension dll file.-->
     <ItemGroup>
-        <RetailServerExtensionAssemblies Include="..\..\CommerceRuntime\bin\$(Configuration)\net6.0\CommerceRuntime.dll" />
+        <RetailServerExtensionAssemblies Include="..\..\CommerceRuntime\bin\$(Configuration)\netstandard2.0\CommerceRuntime.dll" />
     </ItemGroup>
 </Project>

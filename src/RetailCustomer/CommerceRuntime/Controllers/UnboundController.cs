@@ -7,7 +7,7 @@
  * NO TECHNICAL SUPPORT IS PROVIDED.  YOU MAY NOT DISTRIBUTE THIS CODE UNLESS YOU HAVE A LICENSE AGREEMENT WITH MICROSOFT THAT ALLOWS YOU TO DO SO.
  */
 
-namespace GS.SCX.CommerceRuntime.Controllers
+namespace GSSCX.CommerceRuntime.Controllers
 {
     using System.Threading.Tasks;
     using Microsoft.Dynamics.Commerce.Runtime.DataModel;

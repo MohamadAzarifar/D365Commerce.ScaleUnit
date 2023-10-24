@@ -7,29 +7,29 @@
  * NO TECHNICAL SUPPORT IS PROVIDED.  YOU MAY NOT DISTRIBUTE THIS CODE UNLESS YOU HAVE A LICENSE AGREEMENT WITH MICROSOFT THAT ALLOWS YOU TO DO SO.
  */
 
-namespace GS.SCX.CommerceRuntime.Messages
+namespace GSSCX.CommerceRuntime.Messages
 {
     using System.Runtime.Serialization;
     using Microsoft.Dynamics.Commerce.Runtime.Messages;
 
     /// <summary>
-    /// A simple response class to indicate whether creating a new entity succeeded or not.
+    /// A simple request used to delete an example entity from the database.
     /// </summary>
     [DataContract]
-    public sealed class CreateExampleEntityDataResponse : Response
+    public sealed class DeleteExampleEntityDataRequest : Request
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateExampleEntityDataResponse"/> class.
+        /// Initializes a new instance of the <see cref="DeleteExampleEntityDataRequest"/> class.
         /// </summary>
-        /// <param name="createdId">The ID of the newly saved entity instance, 0 in the event of failure.</param>
-        public CreateExampleEntityDataResponse(long createdId)
+        /// <param name="entityKey">A unique key identifying an Example Entity record to delete.</param>
+        public DeleteExampleEntityDataRequest(long entityKey)
         {
-            this.CreatedId = createdId;
+            this.ExampleEntityKey = entityKey;
         }
 
         /// <summary>
-        /// Gets the ID of the newly saved entity instance, or 0 in the event of failure.
+        /// Gets the unique ID specifying the Example Entity record to delete.
         /// </summary>
-        public long CreatedId { get; private set; }
+        public long ExampleEntityKey { get; private set; }
     }
 }

@@ -7,7 +7,7 @@
  * NO TECHNICAL SUPPORT IS PROVIDED.  YOU MAY NOT DISTRIBUTE THIS CODE UNLESS YOU HAVE A LICENSE AGREEMENT WITH MICROSOFT THAT ALLOWS YOU TO DO SO.
  */
 
-namespace GS.SCX.CommerceRuntime.Triggers
+namespace GSSCX.CommerceRuntime.Triggers
 {
     using System;
     using System.Collections.Generic;
@@ -44,8 +44,8 @@ namespace GS.SCX.CommerceRuntime.Triggers
 
             var getExtensionsResponse = (GetExtensionPackageDefinitionsResponse)response;
             var extensionPackageDefinition = new ExtensionPackageDefinition();
-            extensionPackageDefinition.Name = "GS.SCX.Commerce";
-            extensionPackageDefinition.Publisher = "GS.SCX";
+            extensionPackageDefinition.Name = "GSSCX.Commerce";
+            extensionPackageDefinition.Publisher = "GSSCX";
             extensionPackageDefinition.IsEnabled = true;
 
             getExtensionsResponse.ExtensionPackageDefinitions.Add(extensionPackageDefinition);
