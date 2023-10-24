@@ -17,17 +17,17 @@ namespace GSSCX.CommerceRuntime.Entities.DataModel
     /// <summary>
     /// Defines a simple class that holds information about opening and closing times for a particular day.
     /// </summary>
-    public class ExampleEntity : CommerceEntity
+    public class RTCustomerEntity : CommerceEntity
     {
-        private const string ExampleIntColumn = "EXAMPLEINT";
-        private const string ExampleStringColumn = "EXAMPLESTRING";
-        private const string IdColumn = "EXAMPLEID";
+        private const string RTCustomerIntColumn = "RTCustomerINT";
+        private const string RTCustomerStringColumn = "RTCustomerSTRING";
+        private const string IdColumn = "RTCustomerID";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExampleEntity"/> class.
+        /// Initializes a new instance of the <see cref="RTCustomerEntity"/> class.
         /// </summary>
-        public ExampleEntity()
-            : base("Example")
+        public RTCustomerEntity()
+            : base("RTCustomer")
         {
         }
 
@@ -35,22 +35,22 @@ namespace GSSCX.CommerceRuntime.Entities.DataModel
         /// Gets or sets a property containing an int value.
         /// </summary>
         [DataMember]
-        [Column(ExampleIntColumn)]
+        [Column(RTCustomerIntColumn)]
         public int IntData
         {
-            get { return (int)this[ExampleIntColumn]; }
-            set { this[ExampleIntColumn] = value; }
+            get { return (int)this[RTCustomerIntColumn]; }
+            set { this[RTCustomerIntColumn] = value; }
         }
 
         /// <summary>
         /// Gets or sets a property containing a string value.
         /// </summary>
         [DataMember]
-        [Column(ExampleStringColumn)]
+        [Column(RTCustomerStringColumn)]
         public string StringData
         {
-            get { return (string)this[ExampleStringColumn]; }
-            set { this[ExampleStringColumn] = value; }
+            get { return (string)this[RTCustomerStringColumn]; }
+            set { this[RTCustomerStringColumn] = value; }
         }
 
         /// <summary>
