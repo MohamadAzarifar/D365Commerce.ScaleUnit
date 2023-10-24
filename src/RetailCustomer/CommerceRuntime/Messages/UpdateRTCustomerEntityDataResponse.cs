@@ -10,28 +10,26 @@
 namespace GSSCX.CommerceRuntime.Messages
 {
     using System.Runtime.Serialization;
-    using GSSCX.CommerceRuntime.Entities.DataModel;
     using Microsoft.Dynamics.Commerce.Runtime.Messages;
 
     /// <summary>
-    /// A simple request class to create an Example Entity in the database.
+    /// A simple response class to indicate whether an update succeeded or not.
     /// </summary>
     [DataContract]
-    public sealed class CreateExampleEntityDataRequest : Request
+    public sealed class UpdateRTCustomerEntityDataResponse : Response
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateExampleEntityDataRequest"/> class.
+        /// Initializes a new instance of the <see cref="UpdateRTCustomerEntityDataResponse"/> class.
         /// </summary>
-        /// <param name="entityData">An example entity with its fields populated with the values to be stored.</param>
-        public CreateExampleEntityDataRequest(ExampleEntity entityData)
+        /// <param name="success">Whether the update succeeded.</param>
+        public UpdateRTCustomerEntityDataResponse(bool success)
         {
-            this.EntityData = entityData;
+            this.Success = success;
         }
 
         /// <summary>
-        /// Gets an Example Entity instance with its fields set with the values to be stored.
+        /// Gets a value indicating whether the update succeeded.
         /// </summary>
-        [DataMember]
-        public ExampleEntity EntityData { get; private set; }
+        public bool Success { get; private set; }
     }
 }

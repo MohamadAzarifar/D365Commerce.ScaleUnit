@@ -10,26 +10,28 @@
 namespace GSSCX.CommerceRuntime.Messages
 {
     using System.Runtime.Serialization;
+    using GSSCX.CommerceRuntime.Entities.DataModel;
     using Microsoft.Dynamics.Commerce.Runtime.Messages;
 
     /// <summary>
-    /// A simple request used to delete an example entity from the database.
+    /// A simple request class to create an RTCustomer Entity in the database.
     /// </summary>
     [DataContract]
-    public sealed class DeleteExampleEntityDataRequest : Request
+    public sealed class CreateRTCustomerEntityDataRequest : Request
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DeleteExampleEntityDataRequest"/> class.
+        /// Initializes a new instance of the <see cref="CreateRTCustomerEntityDataRequest"/> class.
         /// </summary>
-        /// <param name="entityKey">A unique key identifying an Example Entity record to delete.</param>
-        public DeleteExampleEntityDataRequest(long entityKey)
+        /// <param name="entityData">An RTCustomer entity with its fields populated with the values to be stored.</param>
+        public CreateRTCustomerEntityDataRequest(RTCustomerEntity entityData)
         {
-            this.ExampleEntityKey = entityKey;
+            this.EntityData = entityData;
         }
 
         /// <summary>
-        /// Gets the unique ID specifying the Example Entity record to delete.
+        /// Gets an RTCustomer Entity instance with its fields set with the values to be stored.
         /// </summary>
-        public long ExampleEntityKey { get; private set; }
+        [DataMember]
+        public RTCustomerEntity EntityData { get; private set; }
     }
 }

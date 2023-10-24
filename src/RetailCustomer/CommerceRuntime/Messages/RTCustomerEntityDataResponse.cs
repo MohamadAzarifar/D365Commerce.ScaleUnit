@@ -10,26 +10,29 @@
 namespace GSSCX.CommerceRuntime.Messages
 {
     using System.Runtime.Serialization;
+    using GSSCX.CommerceRuntime.Entities.DataModel;
+    using Microsoft.Dynamics.Commerce.Runtime;
     using Microsoft.Dynamics.Commerce.Runtime.Messages;
 
     /// <summary>
-    /// A simple response class to indicate whether creating a new entity succeeded or not.
+    /// Defines a simple response class that holds a collection of RTCustomer Entities.
     /// </summary>
     [DataContract]
-    public sealed class CreateExampleEntityDataResponse : Response
+    public sealed class RTCustomerEntityDataResponse : Response
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateExampleEntityDataResponse"/> class.
+        /// Initializes a new instance of the <see cref="RTCustomerEntityDataResponse"/> class.
         /// </summary>
-        /// <param name="createdId">The ID of the newly saved entity instance, 0 in the event of failure.</param>
-        public CreateExampleEntityDataResponse(long createdId)
+        /// <param name="RTCustomerEntities">The collection of RTCustomer Entities.</param>
+        public RTCustomerEntityDataResponse(PagedResult<RTCustomerEntity> RTCustomerEntities)
         {
-            this.CreatedId = createdId;
+            this.RTCustomerEntities = RTCustomerEntities;
         }
 
         /// <summary>
-        /// Gets the ID of the newly saved entity instance, or 0 in the event of failure.
+        /// Gets the retrieved RTCustomer Entities as a paged result.
         /// </summary>
-        public long CreatedId { get; private set; }
+        [DataMember]
+        public PagedResult<RTCustomerEntity> RTCustomerEntities { get; private set; }
     }
 }

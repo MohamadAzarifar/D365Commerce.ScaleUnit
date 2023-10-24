@@ -18,45 +18,45 @@ namespace GSSCX.CommerceRuntime.Controllers
     /// An extension controller to handle requests to the StoreHours entity set.
     /// </summary>
     [RoutePrefix("BoundController")]
-    [BindEntity(typeof(Entities.DataModel.ExampleEntity))]
+    [BindEntity(typeof(Entities.DataModel.RTCustomerEntity))]
     public class BoundController : IController
     {
         [HttpGet]
         [Authorization(CommerceRoles.Anonymous, CommerceRoles.Application, CommerceRoles.Customer, CommerceRoles.Device, CommerceRoles.Employee, CommerceRoles.Storefront)]
-        public async Task<PagedResult<Entities.DataModel.ExampleEntity>> GetAllExampleEntities(IEndpointContext context)
+        public async Task<PagedResult<Entities.DataModel.RTCustomerEntity>> GetAllRTCustomerEntities(IEndpointContext context)
         {
             var queryResultSettings = QueryResultSettings.SingleRecord;
             queryResultSettings.Paging = new PagingInfo(10);
 
-            var request = new Messages.ExampleEntityDataRequest() { QueryResultSettings = queryResultSettings };
-            var response = await context.ExecuteAsync<Messages.ExampleEntityDataResponse>(request).ConfigureAwait(false);
-            return response.ExampleEntities;
+            var request = new Messages.RTCustomerEntityDataRequest() { QueryResultSettings = queryResultSettings };
+            var response = await context.ExecuteAsync<Messages.RTCustomerEntityDataResponse>(request).ConfigureAwait(false);
+            return response.RTCustomerEntities;
         }
 
         [HttpPost]
         [Authorization(CommerceRoles.Customer, CommerceRoles.Device, CommerceRoles.Employee)]
-        public async Task<long> CreateExampleEntity(IEndpointContext context, CommerceRuntime.Entities.DataModel.ExampleEntity entityData)
+        public async Task<long> CreateRTCustomerEntity(IEndpointContext context, CommerceRuntime.Entities.DataModel.RTCustomerEntity entityData)
         {
-            var request = new Messages.CreateExampleEntityDataRequest(entityData);
-            var response = await context.ExecuteAsync<Messages.CreateExampleEntityDataResponse>(request).ConfigureAwait(false);
+            var request = new Messages.CreateRTCustomerEntityDataRequest(entityData);
+            var response = await context.ExecuteAsync<Messages.CreateRTCustomerEntityDataResponse>(request).ConfigureAwait(false);
             return response.CreatedId;
         }
 
         [HttpPost]
         [Authorization(CommerceRoles.Customer, CommerceRoles.Device, CommerceRoles.Employee)]
-        public async Task<bool> UpdateExampleEntity(IEndpointContext context, [EntityKey] long key, CommerceRuntime.Entities.DataModel.ExampleEntity updatedEntity)
+        public async Task<bool> UpdateRTCustomerEntity(IEndpointContext context, [EntityKey] long key, CommerceRuntime.Entities.DataModel.RTCustomerEntity updatedEntity)
         {
-            var request = new Messages.UpdateExampleEntityDataRequest(key, updatedEntity);
-            var response = await context.ExecuteAsync<Messages.UpdateExampleEntityDataResponse>(request).ConfigureAwait(false);
+            var request = new Messages.UpdateRTCustomerEntityDataRequest(key, updatedEntity);
+            var response = await context.ExecuteAsync<Messages.UpdateRTCustomerEntityDataResponse>(request).ConfigureAwait(false);
             return response.Success;
         }
 
         [HttpPost]
         [Authorization(CommerceRoles.Customer, CommerceRoles.Device, CommerceRoles.Employee)]
-        public async Task<bool> DeleteExampleEntity(IEndpointContext context, [EntityKey] long key)
+        public async Task<bool> DeleteRTCustomerEntity(IEndpointContext context, [EntityKey] long key)
         {
-            var request = new Messages.DeleteExampleEntityDataRequest(key);
-            var response = await context.ExecuteAsync<Messages.DeleteExampleEntityDataResponse>(request).ConfigureAwait(false);
+            var request = new Messages.DeleteRTCustomerEntityDataRequest(key);
+            var response = await context.ExecuteAsync<Messages.DeleteRTCustomerEntityDataResponse>(request).ConfigureAwait(false);
             return response.Success;
         }
     }

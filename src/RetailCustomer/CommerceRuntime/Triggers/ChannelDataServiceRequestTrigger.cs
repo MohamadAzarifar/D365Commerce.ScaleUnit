@@ -63,7 +63,7 @@ namespace GSSCX.CommerceRuntime.Triggers
                     var data = response as SingleEntityDataServiceResponse<ChannelConfiguration>;
                     if (data != null && data.Entity != null && data.Entity.GetProperty(PropertyKey) == null)
                     {
-                        // In this example, we just put the configuration parameters as part of channelConfiguration property.
+                        // In this RTCustomer, we just put the configuration parameters as part of channelConfiguration property.
                         var configurationParameters = (await request.RequestContext.ExecuteAsync<EntityDataServiceResponse<RetailConfigurationParameter>>(new GetConfigurationParametersDataRequest(originalRequest.ChannelId)).ConfigureAwait(false)).ToList();
 
                         // The reason we need a lock here because of thread-safety.

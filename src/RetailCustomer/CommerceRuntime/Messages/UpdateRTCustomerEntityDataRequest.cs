@@ -14,31 +14,31 @@ namespace GSSCX.CommerceRuntime.Messages
     using Microsoft.Dynamics.Commerce.Runtime.Messages;
 
     /// <summary>
-    /// A simple request class to update the values on an example entity. 
+    /// A simple request class to update the values on an RTCustomer entity. 
     /// </summary>
     [DataContract]
-    public sealed class UpdateExampleEntityDataRequest : Request
+    public sealed class UpdateRTCustomerEntityDataRequest : Request
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateExampleEntityDataRequest"/> class.
+        /// Initializes a new instance of the <see cref="UpdateRTCustomerEntityDataRequest"/> class.
         /// </summary>
-        /// <param name="entityKey">A unique key identifying an Example Entity record to update.</param>
-        /// <param name="updatedEntity">An example entity with update fields.</param>
-        public UpdateExampleEntityDataRequest(long entityKey, ExampleEntity updatedEntity)
+        /// <param name="entityKey">A unique key identifying an RTCustomer Entity record to update.</param>
+        /// <param name="updatedEntity">An RTCustomer entity with update fields.</param>
+        public UpdateRTCustomerEntityDataRequest(long entityKey, RTCustomerEntity updatedEntity)
         {
-            this.ExampleEntityKey = entityKey;
-            this.UpdatedExampleEntity = updatedEntity;
+            this.RTCustomerEntityKey = entityKey;
+            this.UpdatedRTCustomerEntity = updatedEntity;
         }
 
         /// <summary>
-        /// Gets the unique ID specifying the Example Entity record to update.
+        /// Gets the unique ID specifying the RTCustomer Entity record to update.
         /// </summary>
-        public long ExampleEntityKey { get; private set; }
+        public long RTCustomerEntityKey { get; private set; }
 
         /// <summary>
-        /// Gets an Example Entity instance with any updates applied to it.
+        /// Gets an RTCustomer Entity instance with any updates applied to it.
         /// </summary>
         [DataMember]
-        public ExampleEntity UpdatedExampleEntity { get; private set; }
+        public RTCustomerEntity UpdatedRTCustomerEntity { get; private set; }
     }
 }

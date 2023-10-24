@@ -24,7 +24,7 @@ namespace GSSCX.CommerceRuntime.RequestHandlers
     /// <summary>
     /// Sample service to demonstrate managing a collection of entities.
     /// </summary>
-    public class ExampleDataService : IRequestHandlerAsync
+    public class RTCustomerDataService : IRequestHandlerAsync
     {
         /// <summary>
         /// Gets the collection of supported request types by this handler.
@@ -35,10 +35,10 @@ namespace GSSCX.CommerceRuntime.RequestHandlers
             {
                 return new[]
                 {
-                    typeof(CreateExampleEntityDataRequest),
-                    typeof(ExampleEntityDataRequest),
-                    typeof(UpdateExampleEntityDataRequest),
-                    typeof(DeleteExampleEntityDataRequest),
+                    typeof(CreateRTCustomerEntityDataRequest),
+                    typeof(RTCustomerEntityDataRequest),
+                    typeof(UpdateRTCustomerEntityDataRequest),
+                    typeof(DeleteRTCustomerEntityDataRequest),
                 };
             }
         }
@@ -54,20 +54,20 @@ namespace GSSCX.CommerceRuntime.RequestHandlers
 
             switch (request)
             {
-                case CreateExampleEntityDataRequest createExampleEntityDataRequest:
-                    return this.CreateExampleEntity(createExampleEntityDataRequest);
-                case ExampleEntityDataRequest exampleEntityDataRequest:
-                    return this.GetExampleEntities(exampleEntityDataRequest);
-                case UpdateExampleEntityDataRequest updateExampleEntityDataRequest:
-                    return this.UpdateExampleEntity(updateExampleEntityDataRequest);
-                case DeleteExampleEntityDataRequest deleteExampleEntityDataRequest:
-                    return this.DeleteExampleEntity(deleteExampleEntityDataRequest);
+                case CreateRTCustomerEntityDataRequest createRTCustomerEntityDataRequest:
+                    return this.CreateRTCustomerEntity(createRTCustomerEntityDataRequest);
+                case RTCustomerEntityDataRequest RTCustomerEntityDataRequest:
+                    return this.GetRTCustomerEntities(RTCustomerEntityDataRequest);
+                case UpdateRTCustomerEntityDataRequest updateRTCustomerEntityDataRequest:
+                    return this.UpdateRTCustomerEntity(updateRTCustomerEntityDataRequest);
+                case DeleteRTCustomerEntityDataRequest deleteRTCustomerEntityDataRequest:
+                    return this.DeleteRTCustomerEntity(deleteRTCustomerEntityDataRequest);
                 default:
                     throw new NotSupportedException($"Request '{request.GetType()}' is not supported.");
             }
         }
 
-        private async Task<Response> CreateExampleEntity(CreateExampleEntityDataRequest request)
+        private async Task<Response> CreateRTCustomerEntity(CreateRTCustomerEntityDataRequest request)
         {
             ThrowIf.Null(request, nameof(request));
             ThrowIf.Null(request.EntityData, nameof(request.EntityData));
@@ -76,18 +76,18 @@ namespace GSSCX.CommerceRuntime.RequestHandlers
             using (var databaseContext = new SqlServerDatabaseContext(request.RequestContext))
             {
                 ParameterSet parameters = new ParameterSet();
-                parameters["@i_ExampleInt"] = request.EntityData.IntData;
-                parameters["@s_ExampleString"] = request.EntityData.StringData;
+                parameters["@i_RTCustomerInt"] = request.EntityData.IntData;
+                parameters["@s_RTCustomerString"] = request.EntityData.StringData;
                 var result = await databaseContext
-                    .ExecuteStoredProcedureAsync<ExampleEntity>("[ext].GSSCX_INSERTEXAMPLE", parameters, request.QueryResultSettings)
+                    .ExecuteStoredProcedureAsync<RTCustomerEntity>("[ext].GSSCX_INSERTRTCustomer", parameters, request.QueryResultSettings)
                     .ConfigureAwait(continueOnCapturedContext: false);
                 insertedId = result.Item2.Single().UnusualEntityId;
             }
 
-            return new CreateExampleEntityDataResponse(insertedId);
+            return new CreateRTCustomerEntityDataResponse(insertedId);
         }
 
-        private async Task<Response> GetExampleEntities(ExampleEntityDataRequest request)
+        private async Task<Response> GetRTCustomerEntities(RTCustomerEntityDataRequest request)
         {
             ThrowIf.Null(request, "request");
 
@@ -96,68 +96,68 @@ namespace GSSCX.CommerceRuntime.RequestHandlers
                 var query = new SqlPagedQuery(request.QueryResultSettings)
                 {
                     DatabaseSchema = "ext",
-                    Select = new ColumnSet("EXAMPLEINT", "EXAMPLESTRING", "EXAMPLEID"),
-                    From = "GSSCX_EXAMPLEVIEW",
-                    OrderBy = "EXAMPLEID",
+                    Select = new ColumnSet("RTCustomerINT", "RTCustomerSTRING", "RTCustomerID"),
+                    From = "GSSCX_RTCustomerVIEW",
+                    OrderBy = "RTCustomerID",
                 };
 
                 var queryResults =
                     await databaseContext
-                    .ReadEntityAsync<Entities.DataModel.ExampleEntity>(query)
+                    .ReadEntityAsync<Entities.DataModel.RTCustomerEntity>(query)
                     .ConfigureAwait(continueOnCapturedContext: false);
-                return new ExampleEntityDataResponse(queryResults);
+                return new RTCustomerEntityDataResponse(queryResults);
             }
         }
 
-        private async Task<Response> UpdateExampleEntity(UpdateExampleEntityDataRequest request)
+        private async Task<Response> UpdateRTCustomerEntity(UpdateRTCustomerEntityDataRequest request)
         {
             ThrowIf.Null(request, nameof(request));
-            ThrowIf.Null(request.UpdatedExampleEntity, nameof(request.UpdatedExampleEntity));
+            ThrowIf.Null(request.UpdatedRTCustomerEntity, nameof(request.UpdatedRTCustomerEntity));
 
-            if (request.ExampleEntityKey == 0)
+            if (request.RTCustomerEntityKey == 0)
             {
-                throw new DataValidationException(DataValidationErrors.Microsoft_Dynamics_Commerce_Runtime_ValueOutOfRange, $"{nameof(request.ExampleEntityKey)} cannot be 0");
+                throw new DataValidationException(DataValidationErrors.Microsoft_Dynamics_Commerce_Runtime_ValueOutOfRange, $"{nameof(request.RTCustomerEntityKey)} cannot be 0");
             }
 
             bool updateSuccess = false;
             using (var databaseContext = new SqlServerDatabaseContext(request.RequestContext))
             {
                 ParameterSet parameters = new ParameterSet();
-                parameters["@bi_Id"] = request.ExampleEntityKey;
-                parameters["@i_ExampleInt"] = request.UpdatedExampleEntity.IntData;
-                parameters["@s_ExampleString"] = request.UpdatedExampleEntity.StringData;
+                parameters["@bi_Id"] = request.RTCustomerEntityKey;
+                parameters["@i_RTCustomerInt"] = request.UpdatedRTCustomerEntity.IntData;
+                parameters["@s_RTCustomerString"] = request.UpdatedRTCustomerEntity.StringData;
                 int sprocErrorCode =
                     await databaseContext
-                    .ExecuteStoredProcedureNonQueryAsync("[ext].GSSCX_UPDATEEXAMPLE", parameters, request.QueryResultSettings)
+                    .ExecuteStoredProcedureNonQueryAsync("[ext].GSSCX_UPDATERTCustomer", parameters, request.QueryResultSettings)
                     .ConfigureAwait(continueOnCapturedContext: false);
                 updateSuccess = (sprocErrorCode == 0);
             }
 
-            return new UpdateExampleEntityDataResponse(updateSuccess);
+            return new UpdateRTCustomerEntityDataResponse(updateSuccess);
         }
 
-        private async Task<Response> DeleteExampleEntity(DeleteExampleEntityDataRequest request)
+        private async Task<Response> DeleteRTCustomerEntity(DeleteRTCustomerEntityDataRequest request)
         {
             ThrowIf.Null(request, nameof(request));
 
-            if (request.ExampleEntityKey == 0)
+            if (request.RTCustomerEntityKey == 0)
             {
-                throw new DataValidationException(DataValidationErrors.Microsoft_Dynamics_Commerce_Runtime_ValueOutOfRange, $"{nameof(request.ExampleEntityKey)} cannot be 0");
+                throw new DataValidationException(DataValidationErrors.Microsoft_Dynamics_Commerce_Runtime_ValueOutOfRange, $"{nameof(request.RTCustomerEntityKey)} cannot be 0");
             }
 
             bool deleteSuccess = false;
             using (var databaseContext = new SqlServerDatabaseContext(request.RequestContext))
             {
                 ParameterSet parameters = new ParameterSet();
-                parameters["@bi_Id"] = request.ExampleEntityKey;
+                parameters["@bi_Id"] = request.RTCustomerEntityKey;
                 int sprocErrorCode =
                     await databaseContext
-                    .ExecuteStoredProcedureNonQueryAsync("[ext].GSSCX_DELETEEXAMPLE", parameters, request.QueryResultSettings)
+                    .ExecuteStoredProcedureNonQueryAsync("[ext].GSSCX_DELETERTCustomer", parameters, request.QueryResultSettings)
                     .ConfigureAwait(continueOnCapturedContext: false);
                 deleteSuccess = sprocErrorCode == 0;
             }
 
-            return new DeleteExampleEntityDataResponse(deleteSuccess);
+            return new DeleteRTCustomerEntityDataResponse(deleteSuccess);
         }
     }
 }

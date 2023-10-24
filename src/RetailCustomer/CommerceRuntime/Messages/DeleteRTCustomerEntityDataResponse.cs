@@ -10,29 +10,26 @@
 namespace GSSCX.CommerceRuntime.Messages
 {
     using System.Runtime.Serialization;
-    using GSSCX.CommerceRuntime.Entities.DataModel;
-    using Microsoft.Dynamics.Commerce.Runtime;
     using Microsoft.Dynamics.Commerce.Runtime.Messages;
 
     /// <summary>
-    /// Defines a simple response class that holds a collection of Example Entities.
+    /// A simple response class to indicate whether a delete succeeded or not.
     /// </summary>
     [DataContract]
-    public sealed class ExampleEntityDataResponse : Response
+    public sealed class DeleteRTCustomerEntityDataResponse : Response
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExampleEntityDataResponse"/> class.
+        /// Creates a new instance of the <see cref="DeleteRTCustomerEntityDataResponse"/> class.
         /// </summary>
-        /// <param name="exampleEntities">The collection of Example Entities.</param>
-        public ExampleEntityDataResponse(PagedResult<ExampleEntity> exampleEntities)
+        /// <param name="success">Whether the delete succeeded.</param>
+        public DeleteRTCustomerEntityDataResponse(bool success)
         {
-            this.ExampleEntities = exampleEntities;
+            this.Success = success;
         }
 
         /// <summary>
-        /// Gets the retrieved Example Entities as a paged result.
+        /// Gets a value indicating whether the delete succeeded.
         /// </summary>
-        [DataMember]
-        public PagedResult<ExampleEntity> ExampleEntities { get; private set; }
+        public bool Success { get; private set; }
     }
 }

@@ -13,23 +13,23 @@ namespace GSSCX.CommerceRuntime.Messages
     using Microsoft.Dynamics.Commerce.Runtime.Messages;
 
     /// <summary>
-    /// A simple response class to indicate whether an update succeeded or not.
+    /// A simple response class to indicate whether creating a new entity succeeded or not.
     /// </summary>
     [DataContract]
-    public sealed class UpdateExampleEntityDataResponse : Response
+    public sealed class CreateRTCustomerEntityDataResponse : Response
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateExampleEntityDataResponse"/> class.
+        /// Initializes a new instance of the <see cref="CreateRTCustomerEntityDataResponse"/> class.
         /// </summary>
-        /// <param name="success">Whether the update succeeded.</param>
-        public UpdateExampleEntityDataResponse(bool success)
+        /// <param name="createdId">The ID of the newly saved entity instance, 0 in the event of failure.</param>
+        public CreateRTCustomerEntityDataResponse(long createdId)
         {
-            this.Success = success;
+            this.CreatedId = createdId;
         }
 
         /// <summary>
-        /// Gets a value indicating whether the update succeeded.
+        /// Gets the ID of the newly saved entity instance, or 0 in the event of failure.
         /// </summary>
-        public bool Success { get; private set; }
+        public long CreatedId { get; private set; }
     }
 }
