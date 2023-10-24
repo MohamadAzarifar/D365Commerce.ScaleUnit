@@ -2,7 +2,7 @@
   "$schema": "./devDependencies/schemas/manifestSchema.json",
   "name": "GS.SCX.Pos.FullSystemExample.Sample",
   "publisher": "GS.SCX",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "minimumPosVersion": "9.29.0.0",
   "description": "An extension package that makes use of a Retail Server extension. Also works off-line.",
   "components": {

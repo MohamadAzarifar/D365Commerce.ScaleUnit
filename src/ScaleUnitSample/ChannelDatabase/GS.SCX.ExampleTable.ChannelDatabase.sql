@@ -44,7 +44,7 @@ BEGIN
     SET NOCOUNT ON
 
     INSERT INTO
-         ext.GS.SCX_EXAMPLETABLE
+         [ext].[GS.SCX_EXAMPLETABLE]
         (EXAMPLEINT, EXAMPLESTRING)
     OUTPUT
         INSERTED.EXAMPLEID
@@ -97,7 +97,7 @@ BEGIN
     SET NOCOUNT ON
 
     UPDATE
-        ext.GS.SCX_EXAMPLETABLE
+        [ext].[GS.SCX_EXAMPLETABLE]
     SET
         EXAMPLEINT = @i_ExampleInt,
         EXAMPLESTRING = @s_ExampleString
@@ -115,24 +115,24 @@ GO
 -- Create a stored procedure CRT can use to delete Example Entities.
 
 IF OBJECT_ID(N'[ext].[GS.SCX_DELETEEXAMPLE]', N'P') IS NOT NULL
-    DROP PROCEDURE [ext].GS.SCX_DELETEEXAMPLE
+    DROP PROCEDURE [ext].[GS.SCX_DELETEEXAMPLE]
 GO
 
-CREATE PROCEDURE [ext].GS.SCX_DELETEEXAMPLE
+CREATE PROCEDURE [ext].[GS.SCX_DELETEEXAMPLE]
     @bi_Id           BIGINT
 AS
 BEGIN
     SET NOCOUNT ON
 
     DELETE FROM
-        ext.GS.SCX_EXAMPLETABLE
+        [ext].[GS.SCX_EXAMPLETABLE]
     WHERE
         EXAMPLEID = @bi_Id
 END;
 GO
 
-GRANT EXECUTE ON [ext].GS.SCX_DELETEEXAMPLE TO [UsersRole];
+GRANT EXECUTE ON [ext].[GS.SCX_DELETEEXAMPLE] TO [UsersRole];
 GO
 
-GRANT EXECUTE ON [ext].GS.SCX_DELETEEXAMPLE TO [DeployExtensibilityRole];
+GRANT EXECUTE ON [ext].[GS.SCX_DELETEEXAMPLE] TO [DeployExtensibilityRole];
 GO
